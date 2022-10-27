@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+    color: white;
+}
+#formulario_Agregar, #formulario_Busqueda, #formulario_Eliminar{
+    padding: 5%;
+}
+#agregar, #busqueda, #eliminar{
+    text-align: center;
+    display: inline-block;
+    border: 0.3rem solid rgb(94, 0, 128);
+    margin: 2%;    
+}
+#formularios{
+    text-align: center;
+    position: absolute;
+    right: 1%;
+    width: 20%;
+    border: 3px solid #213dad;
+    padding: .5%;
+}
+#text_header{
+    margin-right: 23%;
+    border-bottom: 3px solid #213dad;
+}
