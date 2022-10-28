@@ -5,8 +5,8 @@ class Inventario{
     }
 
     agregar(nuevo){
-        // En caso de que el código sea mayor a 0.
-        if(Number(nuevo.codigo) > 0){
+        // En caso de que no exista el código y el código sea mayor a 0.
+        if(this.buscar(Number(nuevo.codigo)) == null && Number(nuevo.codigo) > 0){
             if(!this.primero){ // Si el primero es null
                 this.primero = nuevo;
                 this.ultimo = nuevo;
@@ -81,6 +81,17 @@ class Inventario{
             aux = aux.before;
         }
         return lista;
+    }
+
+    buscar(codigo){
+        let aux = this.primero;
+        while(aux != null){
+            if(Number(aux.codigo) == Number(codigo))
+                return aux;
+            else 
+                aux = aux.next;
+        }
+        return null;
     }
     
 }
