@@ -5,6 +5,7 @@ class Producto{
         this.cantidad = cantidad;
         this.costo = costo;
         this.next = null;
+        this.before = null;
     }
     informacionProductoHTML(){
         return document.getElementById("listado").innerHTML = 
