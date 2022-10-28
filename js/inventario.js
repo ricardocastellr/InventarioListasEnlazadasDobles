@@ -72,5 +72,15 @@ class Inventario{
         }
         return lista;
     }
+
+    listarInverso(){
+        let aux = this.ultimo;
+        let lista = "";
+        while(aux){
+            lista += aux.informacionProductoHTML();
+            aux = aux.before;
+        }
+        return lista;
+    }
     
 }
