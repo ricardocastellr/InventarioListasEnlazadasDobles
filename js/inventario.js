@@ -8,7 +8,6 @@ class Inventario{
         // En caso de que no exista el código y el código sea mayor a 0.
         if(this.buscar(Number(nuevo.codigo)) == null && Number(nuevo.codigo) > 0){
             if(!this.primero){ // Si el primero es null
-                console.log("ñeoñel")
                 this.primero = nuevo;
                 this.ultimo = nuevo;
             }else{
@@ -117,7 +116,6 @@ class Inventario{
     }
 
     eliminarPrimero(){
-        console.log("osuna")
         let aux = this.primero;
         if(this.primero.before){
             this.primero.before = null;
@@ -126,7 +124,6 @@ class Inventario{
     }
 
     eliminarUltimo(){
-        console.log("aña")
         this.ultimo.before.next = null;
         this.ultimo = this.ultimo.before;
     }
