@@ -76,7 +76,6 @@ class Inventario{
     listarInverso(){
         let aux = this.ultimo;
         let lista = "";
-        console.log(this.ultimo.codigo)
         while(aux){
             lista += aux.informacionProductoHTML();
             aux = aux.before;
@@ -119,8 +118,13 @@ class Inventario{
         let aux = this.primero;
         if(this.primero.before){
             this.primero.before = null;
+        }else if(this.ultimo == aux){
+            this.ultimo = null;
+        }else{
+            this.primero = aux.next;
+            this.primero.before = null;
         }
-        this.primero = aux.before;
+        this.primero = aux.next;
     }
 
     eliminarUltimo(){
