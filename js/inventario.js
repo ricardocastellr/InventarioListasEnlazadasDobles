@@ -8,6 +8,7 @@ class Inventario{
         // En caso de que no exista el código y el código sea mayor a 0.
         if(this.buscar(Number(nuevo.codigo)) == null && Number(nuevo.codigo) > 0){
             if(!this.primero){ // Si el primero es null
+                console.log("ñeoñel")
                 this.primero = nuevo;
                 this.ultimo = nuevo;
             }else{
@@ -76,6 +77,7 @@ class Inventario{
     listarInverso(){
         let aux = this.ultimo;
         let lista = "";
+        console.log(this.ultimo.codigo)
         while(aux){
             lista += aux.informacionProductoHTML();
             aux = aux.before;
@@ -93,5 +95,39 @@ class Inventario{
         }
         return null;
     }
-    
+
+    eliminar(codigo){
+        codigo = Number(codigo);
+        if(this.buscar(codigo)==null){
+            return false;
+        }else{
+            let aux = this.primero;
+            if(this.primero.codigo == codigo)
+                this.eliminarPrimero();
+            else if(this.ultimo.codigo == codigo)
+                this.eliminarUltimo();
+            else{
+                while(aux.next.codigo != codigo)
+                    aux=aux.next;
+                    aux.next = aux.next.next;
+                    aux.next.anterior = aux;
+            }
+            return true;
+        }
+    }
+
+    eliminarPrimero(){
+        console.log("osuna")
+        let aux = this.primero;
+        if(this.primero.before){
+            this.primero.before = null;
+        }
+        this.primero = aux.before;
+    }
+
+    eliminarUltimo(){
+        console.log("aña")
+        this.ultimo.before.next = null;
+        this.ultimo = this.ultimo.before;
+    }
 }

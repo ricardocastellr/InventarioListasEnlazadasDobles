@@ -54,7 +54,7 @@ const eliminar = document.getElementById("btnEliminar")
 eliminar.addEventListener("click", (e) => {
     const producto = miInv.eliminar(document.getElementById("delCodigo").value);
     document.getElementById("delCodigo").value = ``;
-    if(producto == true){
+    if(producto){
         document.getElementById("acciones").innerHTML +=
         `<h3>El producto se eliminó con exito.</h3>`;
         document.getElementById("listado").innerHTML = ``;
