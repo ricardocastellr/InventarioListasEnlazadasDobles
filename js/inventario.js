@@ -106,9 +106,9 @@ class Inventario{
                 this.eliminarUltimo();
             else{
                 while(aux.next.codigo != codigo)
-                    aux=aux.next;
+                    aux = aux.next;
                     aux.next = aux.next.next;
-                    aux.next.anterior = aux;
+                    aux.next.before = aux;
             }
             return true;
         }
